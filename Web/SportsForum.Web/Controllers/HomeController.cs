@@ -2,9 +2,8 @@
 {
     using System.Diagnostics;
 
-    using SportsForum.Web.ViewModels;
-
     using Microsoft.AspNetCore.Mvc;
+    using SportsForum.Web.ViewModels;
 
     public class HomeController : BaseController
     {

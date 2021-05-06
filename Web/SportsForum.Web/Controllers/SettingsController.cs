@@ -3,12 +3,11 @@
     using System;
     using System.Threading.Tasks;
 
+    using Microsoft.AspNetCore.Mvc;
     using SportsForum.Data.Common.Repositories;
     using SportsForum.Data.Models;
     using SportsForum.Services.Data;
     using SportsForum.Web.ViewModels.Settings;
-
-    using Microsoft.AspNetCore.Mvc;
 
     public class SettingsController : BaseController
     {

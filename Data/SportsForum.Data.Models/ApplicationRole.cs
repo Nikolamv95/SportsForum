@@ -3,9 +3,8 @@ namespace SportsForum.Data.Models
 {
     using System;
 
-    using SportsForum.Data.Common.Models;
-
     using Microsoft.AspNetCore.Identity;
+    using SportsForum.Data.Common.Models;
 
     public class ApplicationRole : IdentityRole, IAuditInfo, IDeletableEntity
     {

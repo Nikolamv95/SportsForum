@@ -4,11 +4,10 @@
     using System.Linq;
     using System.Threading.Tasks;
 
-    using SportsForum.Common;
-    using SportsForum.Data.Models;
-
     using Microsoft.AspNetCore.Identity;
     using Microsoft.Extensions.DependencyInjection;
+    using SportsForum.Common;
+    using SportsForum.Data.Models;
 
     internal class RolesSeeder : ISeeder
     {

@@ -2,9 +2,8 @@
 {
     using System.Linq;
 
-    using SportsForum.Data.Common.Models;
-
     using Microsoft.EntityFrameworkCore;
+    using SportsForum.Data.Common.Models;
 
     internal static class EntityIndexesConfiguration
     {

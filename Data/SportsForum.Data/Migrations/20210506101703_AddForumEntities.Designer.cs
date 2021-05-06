@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SportsForum.Data;
 
 namespace SportsForum.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210506101703_AddForumEntities")]
+    partial class AddForumEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -288,9 +290,6 @@ namespace SportsForum.Data.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("ApplicationUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
@@ -313,8 +312,6 @@ namespace SportsForum.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ApplicationUserId");
 
                     b.HasIndex("IsDeleted");
 
@@ -452,10 +449,6 @@ namespace SportsForum.Data.Migrations
 
             modelBuilder.Entity("SportsForum.Data.Models.Comment", b =>
                 {
-                    b.HasOne("SportsForum.Data.Models.ApplicationUser", null)
-                        .WithMany("Comments")
-                        .HasForeignKey("ApplicationUserId");
-
                     b.HasOne("SportsForum.Data.Models.Post", "Post")
                         .WithMany("Comments")
                         .HasForeignKey("PostId")
@@ -480,7 +473,7 @@ namespace SportsForum.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("SportsForum.Data.Models.ApplicationUser", "User")
-                        .WithMany("Posts")
+                        .WithMany()
                         .HasForeignKey("UserId");
 
                     b.Navigation("Category");
@@ -492,11 +485,7 @@ namespace SportsForum.Data.Migrations
                 {
                     b.Navigation("Claims");
 
-                    b.Navigation("Comments");
-
                     b.Navigation("Logins");
-
-                    b.Navigation("Posts");
 
                     b.Navigation("Roles");
                 });

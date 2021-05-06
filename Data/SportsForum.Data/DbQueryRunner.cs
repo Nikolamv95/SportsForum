@@ -3,9 +3,8 @@
     using System;
     using System.Threading.Tasks;
 
-    using SportsForum.Data.Common;
-
     using Microsoft.EntityFrameworkCore;
+    using SportsForum.Data.Common;
 
     public class DbQueryRunner : IDbQueryRunner
     {

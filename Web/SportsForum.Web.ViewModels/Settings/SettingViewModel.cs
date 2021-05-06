@@ -1,9 +1,8 @@
 ﻿namespace SportsForum.Web.ViewModels.Settings
 {
+    using AutoMapper;
     using SportsForum.Data.Models;
     using SportsForum.Services.Mapping;
-
-    using AutoMapper;
 
     public class SettingViewModel : IMapFrom<Setting>, IHaveCustomMappings
     {
