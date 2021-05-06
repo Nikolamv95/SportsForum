@@ -3,13 +3,28 @@
     using System.Diagnostics;
 
     using Microsoft.AspNetCore.Mvc;
+    using SportsForum.Services.Data;
     using SportsForum.Web.ViewModels;
+    using SportsForum.Web.ViewModels.Home;
 
     public class HomeController : BaseController
     {
+        private readonly ICategoryService categoryService;
+
+        public HomeController(ICategoryService categoryService)
+        {
+            this.categoryService = categoryService;
+        }
+
+        [HttpGet]
         public IActionResult Index()
         {
-            return this.View();
+            var viewModel = new IndexViewModel
+            {
+                Categories = this.categoryService.GetCategories<IndexCategoryViewModel>(),
+            };
+
+            return this.View(viewModel);
         }
 
         public IActionResult Privacy()
