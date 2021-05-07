@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public interface ICategoryService
+    public interface ICategoriesService
     {
         public IEnumerable<T> GetCategories<T>(int? count = null);
 

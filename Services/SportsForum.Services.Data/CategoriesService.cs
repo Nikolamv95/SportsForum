@@ -8,11 +8,11 @@
     using SportsForum.Services.Mapping;
     using SportsForum.Web.ViewModels.Home;
 
-    public class CategoryService : ICategoryService
+    public class CategoriesService : ICategoriesService
     {
         private readonly IDeletableEntityRepository<Category> categoryRepository;
 
-        public CategoryService(IDeletableEntityRepository<Category> categoryRepository)
+        public CategoriesService(IDeletableEntityRepository<Category> categoryRepository)
         {
             this.categoryRepository = categoryRepository;
         }
