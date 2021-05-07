@@ -332,3 +332,10 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+*.woff
+*.eot
+*.woff2
+*.svg
+*.js
+*.css
+*.ttf

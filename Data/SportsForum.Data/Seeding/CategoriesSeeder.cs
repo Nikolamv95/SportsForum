@@ -16,14 +16,14 @@
                 return;
             }
 
-            var categories = new List<string>() {"Sport", "News", "Music", "Programming", "Dogs", "Cat"};
+            var categories = new List<string>() { "Sport", "News", "Music", "Programming", "Dogs", "Cat" };
             foreach (var category in categories)
             {
                 await dbContext.AddAsync(new Category()
                 {
                     Name = category,
                     Description = category,
-                    Tittle = category,
+                    Title = category,
                 });
             }
         }
