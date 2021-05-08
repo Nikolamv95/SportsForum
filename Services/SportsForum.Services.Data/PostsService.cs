@@ -1,9 +1,11 @@
 ﻿namespace SportsForum.Services.Data
 {
+    using System.Linq;
     using System.Threading.Tasks;
 
     using SportsForum.Data.Common.Repositories;
     using SportsForum.Data.Models;
+    using SportsForum.Services.Mapping;
     using SportsForum.Web.ViewModels.Posts;
 
     public class PostsService : IPostsService
@@ -35,6 +37,12 @@
             await this.postRepository.SaveChangesAsync();
 
             return post.Id;
+        }
+
+        public T GetById<T>(int id)
+        {
+            var post = this.postRepository.All().Where(x => x.Id == id).To<T>().FirstOrDefault();
+            return post;
         }
     }
 }

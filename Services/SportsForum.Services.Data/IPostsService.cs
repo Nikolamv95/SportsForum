@@ -7,5 +7,7 @@
     public interface IPostsService
     {
         public Task<int> CreatePostAsync(PostCreateInputModel postInput, string userId);
+
+        T GetById<T>(int id);
     }
 }

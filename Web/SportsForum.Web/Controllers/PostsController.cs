@@ -16,7 +16,7 @@
         private readonly ICategoriesService categoriesService;
         private readonly UserManager<ApplicationUser> userManager;
 
-        public PostsController(IPostsService postsService, ICategoriesService categoriesService , UserManager<ApplicationUser> userManager)
+        public PostsController(IPostsService postsService, ICategoriesService categoriesService, UserManager<ApplicationUser> userManager)
         {
             this.postsService = postsService;
             this.categoriesService = categoriesService;
@@ -51,10 +51,16 @@
         }
 
         [HttpGet]
-        public IActionResult ById(int? id)
+        public IActionResult ById(int id)
         {
-            // TODO: Remove null value ?
-            return this.View();
+            var postViewModel = this.postsService.GetById<PostViewModel>(id);
+
+            if (postViewModel == null)
+            {
+                return this.NotFound();
+            }
+
+            return this.View(postViewModel);
         }
     }
 }
