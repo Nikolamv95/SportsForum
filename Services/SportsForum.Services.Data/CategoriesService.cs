@@ -31,7 +31,7 @@
 
         public T GetByName<T>(string name)
         {
-           return this.categoryRepository.All().Where(x => x.Name == name).To<T>().FirstOrDefault();
+           return this.categoryRepository.All().Where(x => x.Name.Replace(" ", "-") == name.Replace(" ", "-")).To<T>().FirstOrDefault();
         }
     }
 }

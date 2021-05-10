@@ -1,5 +1,6 @@
 ﻿namespace SportsForum.Services.Data
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -43,6 +44,18 @@
         {
             var post = this.postRepository.All().Where(x => x.Id == id).To<T>().FirstOrDefault();
             return post;
+        }
+
+        public IEnumerable<T> GetByCategoryId<T>(int categoryId, int take, int skip = 0)
+        {
+             var categoryPosts = this.postRepository.All().OrderByDescending(x => x.CreatedOn).Where(x => x.CategoryId == categoryId).Skip(skip).Take(take).To<T>().ToList();
+
+             return categoryPosts;
+        }
+
+        public int GetCountByCategoryId(int categoryId)
+        {
+            return this.postRepository.All().Count(x => x.CategoryId == categoryId);
         }
     }
 }

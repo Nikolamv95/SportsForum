@@ -6,7 +6,17 @@
 
 <div class="text-center" style="padding-bottom: 2em">
     <h1 class="display-3">@this.ViewData["Title"]</h1>
+    <cache expires-after="TimeSpan.FromDays(10)" vary-by-query="id">
+        <h1 class="display-3"></h1>
+    </cache>
 </div>
+
+<hr />
+<div class="mb-3 d-flex justify-content-center">
+    <a asp-controller="Posts" asp-action="Create" class="btn btn-info btn-lg">Create new forum post</a>
+</div>
+<hr />
+
 <div class="row">
     @foreach (var category in Model.Categories)
     {
@@ -19,3 +29,4 @@
         </div>
     }
 </div>
+

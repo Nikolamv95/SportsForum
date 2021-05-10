@@ -1,10 +1,12 @@
-﻿using System.Linq;
-using AutoMapper;
+﻿using System.Collections.Generic;
+using SportsForum.Web.ViewModels.Comments;
 
 namespace SportsForum.Web.ViewModels.Posts
 {
     using System;
+    using System.Linq;
 
+    using AutoMapper;
     using Ganss.XSS;
     using SportsForum.Data.Models;
     using SportsForum.Services.Mapping;
@@ -25,13 +27,14 @@ namespace SportsForum.Web.ViewModels.Posts
 
         public int VotesCount { get; set; }
 
+        public IEnumerable<PostCommentViewModel> Comments { get; set; }
+
         public void CreateMappings(IProfileExpression configuration)
         {
             // When you map from post to PostViewModel for property VotesCount do the following logic:
-
             configuration.CreateMap<Post, PostViewModel>().ForMember(x => x.VotesCount, opt =>
             {
-                opt.MapFrom(v => v.Votes.Sum(p => (int) p.Type));
+                opt.MapFrom(v => v.Votes.Sum(p => (int)p.Type));
             });
         }
     }
