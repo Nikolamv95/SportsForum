@@ -16,13 +16,13 @@
                 return;
             }
 
-            var categories = new List<string>() { "Sport", "News", "Music", "Programming", "Dogs", "Cat" };
+            var categories = new List<string>() { "Football", "Baseball", "Tennis", "Basketball", "American Football", "Golf" };
             foreach (var category in categories)
             {
                 await dbContext.AddAsync(new Category()
                 {
                     Name = category,
-                    Description = category,
+                    Description = $"The object of this category is to discuss different {category} questions.",
                     Title = category,
                 });
             }
