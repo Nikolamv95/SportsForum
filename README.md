@@ -15,6 +15,6 @@ Project is created with:
 * Fontawesome
 * Tinymce
   
-## 👨‍Template Author
+## 👨‍ Template Author
 
 [Nikola Margaritov](https://github.com/Nikolamv95)
