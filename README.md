@@ -17,4 +17,4 @@ Project is created with:
   
 ## 👨‍Template Author
 
-[Nikolay Kostov](https://github.com/NikolayIT)
+[Nikola Margaritov](https://github.com/Nikolamv95)
